@@ -19,14 +19,18 @@ align-items: center;
 justify-content: center;
 `
 
+const NavItem = styled.div`
+padding-left: 2vw;
+`
+
 export default class Nav extends Component {
   render() {
     return (
       <NavContainer>
-        <h1>The Fritz App!</h1>
+        <h1>FritzBall</h1>
         <NavItemContainer>
-          <div>MyFritz</div>
-          <div>Store</div>
+          <NavItem>MyFritz</NavItem>
+          <NavItem>Store</NavItem>
         </NavItemContainer>
       </NavContainer>
     )
