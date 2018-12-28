@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios';
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
 const MainContainer = styled.div`
 margin: 5vw;
@@ -12,12 +13,13 @@ grid-gap: 1vw;
 `
 
 const StyledImg = styled.img`
-width: 25vw;
+width: 100%;
 `
 
 const StyledSport = styled.div`
 position: relative;
 bottom: 50%;
+text-align: center;
 color: white;
 `
 
@@ -29,7 +31,7 @@ export default class Main extends Component {
     componentDidMount = async () => {
         const response = await axios.get('/api/sports')
         this.setState({ sports: response.data.sports })
-        console.log(response)
+        console.log(this.state.sports)
     }
 
 
@@ -37,10 +39,10 @@ export default class Main extends Component {
 
     const sportsList = this.state.sports.map((sport, i) => {
         return (
-            <div key={i}>
+            <Link to={`/`} key={i}>
                 <StyledImg src={sport.strSportThumb} />
                 <StyledSport>{sport.strSport}</StyledSport>
-            </div>
+            </Link>
         )
     })
 

@@ -7,7 +7,10 @@ class App extends Component {
   render() {
     return (
       <Router className="App">
-          <Home />
+        <Switch>
+          <Route exact path='/' component={Home} />
+          <Route exact
+        </Switch>
       </Router>
     )
   }
