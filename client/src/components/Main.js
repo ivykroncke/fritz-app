@@ -31,7 +31,6 @@ export default class Main extends Component {
     componentDidMount = async () => {
         const response = await axios.get('/api/sports')
         this.setState({ sports: response.data.sports })
-        console.log(this.state.sports)
     }
 
 
@@ -39,7 +38,7 @@ export default class Main extends Component {
 
     const sportsList = this.state.sports.map((sport, i) => {
         return (
-            <Link to={`/`} key={i}>
+            <Link to={`/${sport.strSport}`} key={i}>
                 <StyledImg src={sport.strSportThumb} />
                 <StyledSport>{sport.strSport}</StyledSport>
             </Link>
