@@ -6,4 +6,9 @@ def index
     render json: @sports
 end
 
+def show
+    @sport = HTTParty.get("https://www.thesportsdb.com/api/v1/json/1/search_all_leagues.php?s=#{params[:id]}")
+    render json: @sport
+end
+
 end
